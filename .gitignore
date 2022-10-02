@@ -1,2 +1,3 @@
 data/input/*.csv
 venv
+.vscode
