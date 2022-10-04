@@ -1,5 +1,6 @@
 import src.construct_model as construct_model
 import src.preprocess as preprocess
+import src.predict as predict
 from keras.callbacks import CSVLogger
 from keras.metrics import Precision, Recall, Accuracy
 import os
@@ -51,10 +52,15 @@ def estimate(name:str, layers:list, max_tokenizer_length:int=100, epochs:int=1):
 	history = model.fit(train, epochs=epochs, validation_data=validation, callbacks=[logger])
 	model.save(f"./data/models/{name}.h5")
 
+	predict.make_predictions(
+		model_name=name,
+		model=model,
+		tokenizer=tokenizer
+	)
+
 	pre = Precision()
 	re = Recall()
 	acc = Accuracy()
-
 	for batch in validation.as_numpy_iterator(): 
 		x, y_true = batch
 		y_pred = (model.predict(x) > 0.5).astype(int)

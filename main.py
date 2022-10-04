@@ -2,60 +2,57 @@ from keras.layers import LSTM, Bidirectional, Dense, Conv1D, MaxPooling1D, Globa
 from src.estimate import estimate
 
 # All models feature an untrainable embedding layer by default
-# models = {
-# 	"1hl" : [
-# 		Dense(128, activation="relu", kernel_regularizer="l2"),
-# 		Flatten(),
-# 		Dense(1, activation="sigmoid"),
-# 	],
-# 	"2hl" : [
-# 		Dense(128, activation="relu", kernel_regularizer="l2"),
-# 		Dense(128, activation="relu", kernel_regularizer="l2"),
-# 		Flatten(),
-# 		Dense(1, activation="sigmoid"),
-# 	],
-# 	"3hl" : [
-# 		Dense(128, activation="relu", kernel_regularizer="l2"),
-# 		Dense(128, activation="relu", kernel_regularizer="l2"),
-# 		Flatten(),
-# 		Dense(1, activation="sigmoid"),
-# 	],
-# 	"4hl" : [
-# 		Dense(128, activation="relu", kernel_regularizer="l2"),
-# 		Dense(128, activation="relu", kernel_regularizer="l2"),
-# 		Flatten(),
-# 		Dense(1, activation="sigmoid"),
-# 	],
-# 	"conv_maxPool_1hl" : [
-# 		Conv1D(128, 5, activation="relu"),
-# 		MaxPooling1D(5),
-# 		Dense(128, activation="relu", kernel_regularizer="l2"),
-# 		Flatten(),
-# 		Dense(1, activation="sigmoid"),
-# 	],
-# 	"conv_maxPool_2hl" : [
-# 		Conv1D(128, 5, activation="relu"),
-# 		MaxPooling1D(5),
-# 		Dense(128, activation="relu", kernel_regularizer="l2"),
-# 		Dense(128, activation="relu", kernel_regularizer="l2"),
-# 		Flatten(),
-# 		Dense(1, activation="sigmoid"),
-# 	],
-# 	"biDirectional_1hl" : [
-# 		Bidirectional(LSTM(100, activation="relu", kernel_regularizer="l2")),
-# 		Dense(128, activation="relu", kernel_regularizer="l2"),
-# 		Flatten(),
-# 		Dense(1, activation="sigmoid"),
-# 	],
-# 	"biDirectional_2hl" : [
-# 		Bidirectional(LSTM(100, activation="relu", kernel_regularizer="l2")),
-# 		Dense(128, activation="relu", kernel_regularizer="l2"),
-# 		Flatten(),
-# 		Dense(1, activation="sigmoid"),
-# 	],
-# }
-
 models = {
+	"1hl" : [
+		Dense(128, activation="relu", kernel_regularizer="l2"),
+		Flatten(),
+		Dense(1, activation="sigmoid"),
+	],
+	"2hl" : [
+		Dense(128, activation="relu", kernel_regularizer="l2"),
+		Dense(128, activation="relu", kernel_regularizer="l2"),
+		Flatten(),
+		Dense(1, activation="sigmoid"),
+	],
+	"3hl" : [
+		Dense(128, activation="relu", kernel_regularizer="l2"),
+		Dense(128, activation="relu", kernel_regularizer="l2"),
+		Flatten(),
+		Dense(1, activation="sigmoid"),
+	],
+	"4hl" : [
+		Dense(128, activation="relu", kernel_regularizer="l2"),
+		Dense(128, activation="relu", kernel_regularizer="l2"),
+		Flatten(),
+		Dense(1, activation="sigmoid"),
+	],
+	"conv_maxPool_1hl" : [
+		Conv1D(128, 5, activation="relu"),
+		MaxPooling1D(5),
+		Dense(128, activation="relu", kernel_regularizer="l2"),
+		Flatten(),
+		Dense(1, activation="sigmoid"),
+	],
+	"conv_maxPool_2hl" : [
+		Conv1D(128, 5, activation="relu"),
+		MaxPooling1D(5),
+		Dense(128, activation="relu", kernel_regularizer="l2"),
+		Dense(128, activation="relu", kernel_regularizer="l2"),
+		Flatten(),
+		Dense(1, activation="sigmoid"),
+	],
+	"biDirectional_1hl" : [
+		Bidirectional(LSTM(100, activation="relu", kernel_regularizer="l2")),
+		Dense(128, activation="relu", kernel_regularizer="l2"),
+		Flatten(),
+		Dense(1, activation="sigmoid"),
+	],
+	"biDirectional_2hl" : [
+		Bidirectional(LSTM(100, activation="relu", kernel_regularizer="l2")),
+		Dense(128, activation="relu", kernel_regularizer="l2"),
+		Flatten(),
+		Dense(1, activation="sigmoid"),
+	],
 	"2conv_2maxPool_1hl" : [
 		Conv1D(128, 5, activation="relu"),
 		MaxPooling1D(5),
@@ -75,45 +72,41 @@ models = {
 		Flatten(),
 		Dense(1, activation="sigmoid"),
 	],
-	"3conv_3maxPool_1hl" : [
+	"3conv_1maxPool_1hl" : [
+		Conv1D(128, 5, activation="relu"),
+		Conv1D(128, 5, activation="relu"),
 		Conv1D(128, 5, activation="relu"),
 		MaxPooling1D(5),
-		Conv1D(128, 5, activation="relu"),
-		MaxPooling1D(5),
-		Conv1D(128, 5, activation="relu"),
 		Dense(128, activation="relu", kernel_regularizer="l2"),
 		Flatten(),
 		Dense(1, activation="sigmoid"),
 	],
-	"3conv_3maxPool_2hl" : [
+	"3conv_1maxPool_2hl" : [
+		Conv1D(128, 5, activation="relu"),
+		Conv1D(128, 5, activation="relu"),
 		Conv1D(128, 5, activation="relu"),
 		MaxPooling1D(5),
-		Conv1D(128, 5, activation="relu"),
-		MaxPooling1D(5),
-		Conv1D(128, 5, activation="relu"),
 		Dense(128, activation="relu", kernel_regularizer="l2"),
 		Dense(128, activation="relu", kernel_regularizer="l2"),
 		Flatten(),
 		Dense(1, activation="sigmoid"),
 	],
-	"3conv_2maxPool_globalMaxPool_1hl" : [
+	"4conv_1maxPool_1hl" : [
+		Conv1D(128, 5, activation="relu"),
+		Conv1D(128, 5, activation="relu"),
+		Conv1D(128, 5, activation="relu"),
 		Conv1D(128, 5, activation="relu"),
 		MaxPooling1D(5),
-		Conv1D(128, 5, activation="relu"),
-		MaxPooling1D(5),
-		Conv1D(128, 5, activation="relu"),
-		GlobalMaxPooling1D(),
 		Dense(128, activation="relu", kernel_regularizer="l2"),
 		Flatten(),
 		Dense(1, activation="sigmoid"),
 	],
-	"3conv_2maxPool_globalMaxPool_2hl" : [
+	"4conv_1maxPool_2hl" : [
+		Conv1D(128, 5, activation="relu"),
+		Conv1D(128, 5, activation="relu"),
+		Conv1D(128, 5, activation="relu"),
 		Conv1D(128, 5, activation="relu"),
 		MaxPooling1D(5),
-		Conv1D(128, 5, activation="relu"),
-		MaxPooling1D(5),
-		Conv1D(128, 5, activation="relu"),
-		GlobalMaxPooling1D(),
 		Dense(128, activation="relu", kernel_regularizer="l2"),
 		Dense(128, activation="relu", kernel_regularizer="l2"),
 		Flatten(),

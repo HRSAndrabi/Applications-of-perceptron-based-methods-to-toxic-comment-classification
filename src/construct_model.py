@@ -1,6 +1,6 @@
 from keras.models import Sequential
 from keras.layers import Embedding
-from keras.metrics import Precision, Recall
+from keras.metrics import Precision, Recall, AUC
 from keras.initializers import Constant
 
 def construct_model(embedding, max_tokenizer_length:int, layers:list):
@@ -31,6 +31,6 @@ def construct_model(embedding, max_tokenizer_length:int, layers:list):
 	for layer in layers:
 		model.add(layer)
 
-	model.compile(loss="BinaryCrossentropy", optimizer="Adam", metrics=["acc", Precision(), Recall()])
+	model.compile(loss="BinaryCrossentropy", optimizer="Adam", metrics=["acc", Precision(), Recall(), AUC()])
 	model.summary()
 	return model
