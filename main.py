@@ -1,5 +1,24 @@
-import pandas as pd
+from keras.layers import LSTM, Bidirectional, Dense
+from src.estimate import estimate
 
+# All models feature an untrainable embedding layer by default
+models = {
+	"1_bi_directional" : [
+		Bidirectional(LSTM(100, activation="relu")),
+		Dense(128, activation="relu"),
+		Dense(1, activation="sigmoid"),
+	],
+	"2_bi_directional" : [
+		Bidirectional(LSTM(100, return_sequences=True, activation="relu")),
+		Bidirectional(LSTM(100, activation="relu")),
+		Dense(128, activation="relu"),
+		Dense(1, activation="sigmoid"),
+	],
+}
 
-df = pd.read_csv("data/input/dev_raw.csv")
-print(df.columns)
+for name, layers in models.items():
+	estimate(
+		name=name,
+		layers=layers,
+		epochs=20,
+	)

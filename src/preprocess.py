@@ -1,0 +1,89 @@
+import pandas as pd
+import numpy as np
+import tensorflow as tf
+from keras.preprocessing.text import Tokenizer
+from keras.utils import pad_sequences
+
+def load_dataset(subset:str, tokenizer:Tokenizer, max_tokenizer_length:int):
+	"""
+	Loads tokenized, prefetched, cached, shuffled, and batched `Dataset` 
+	from tensor slices.
+
+	Args:
+	* `subset (str)`: subset of data to load. One of "train", "dev", "test"
+	or "unlabelled".
+	* `tokenizer (Tokenizer)`: Tokenizer to use on input text data.
+	* `max_tokenizer_length (int)`: Max length of tokenised inputs. All
+	inputs are padded or truncated to fit this length.
+
+	Returns:
+	* `dataset (Dataset)`: Prefetched, cached, and shuffled Dataset from 
+	tensor slices, in batches of 16.
+	"""
+	df = pd.read_csv(f"data/input/{subset}_raw.csv")
+	x = df["Comment"].values
+	y = df["Toxicity"].values
+	tokenized_x = pad_sequences(
+		tokenizer.texts_to_sequences(x), 
+		maxlen=max_tokenizer_length, 
+		padding="post", 
+		truncating="post"
+	)
+	dataset = tf.data.Dataset.from_tensor_slices((tokenized_x, y))
+	dataset = dataset.cache()
+	dataset = dataset.shuffle(160000)
+	dataset = dataset.batch(16)
+	dataset = dataset.prefetch(8)
+	return dataset
+
+def generate_embedding(max_tokenizer_length:int):
+	"""
+	Generates tokenizer and embedding matrix based on pre-trained GloVe
+	embeddings.
+
+	Args:
+	* `max_tokenizer_length (int)`: Max length of tokenised inputs. All
+	inputs are padded or truncated to fit this length.
+
+	Returns:
+	* `tokenizer (Tokenizer)`: Tokenizer to use on input text data.
+	* `embedding_matrix (np.array)`: Embedding matrix of weights to apply
+	to tokenized inputs. Embedding matrix based on pre-trained GloVe 
+	embeddings.
+	"""
+	tokenizer = Tokenizer(num_words=10000, oov_token="<OOV>", lower=True)
+	df = pd.read_csv("data/input/train_raw.csv")
+	tokenizer.fit_on_texts(df["Comment"].values)
+	word_index = tokenizer.word_index
+
+	# Read GloVe embeddings
+	embeddings_index = {}
+	with open("data/input/glove.6B/glove.6B.100d.txt") as f:
+		for line in f:
+			embedding = line.split()
+			embeddings_index[embedding[0]] = np.asarray(
+				embedding[1:], dtype="float32"
+			)
+	f.close()
+
+	# Apply embeddings
+	embedding_matrix = np.zeros((len(word_index) + 1, max_tokenizer_length))
+	for word, i in word_index.items():
+		embedding_vector = embeddings_index.get(word)
+		if embedding_vector is not None:
+			embedding_matrix[i] = embedding_vector
+
+	return tokenizer, embedding_matrix
+
+
+# tokenizer, embedding = generate_embedding()
+# train = load_dataset(
+# 	subset="train",
+# 	tokenizer=tokenizer,
+# 	max_tokenizer_length=100,
+# )
+# validation = load_dataset(
+# 	subset="dev",
+# 	tokenizer=tokenizer,
+# 	max_tokenizer_length=100,
+# )

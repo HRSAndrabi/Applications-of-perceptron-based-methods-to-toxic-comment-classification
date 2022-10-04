@@ -1,3 +1,4 @@
-data/input/*.csv
+data/input
 venv
 .vscode
+__pycache__
