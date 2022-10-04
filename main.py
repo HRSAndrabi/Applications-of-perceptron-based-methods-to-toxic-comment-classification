@@ -1,5 +1,6 @@
 from keras.layers import LSTM, Bidirectional, Dense, Conv1D, MaxPooling1D, GlobalMaxPooling1D, Flatten
 from src.estimate import estimate
+import src.preprocess as preprocess
 
 # All models feature an untrainable embedding layer by default
 models = {
@@ -115,6 +116,10 @@ models = {
 }
 
 for name, layers in models.items():
+	max_tokenizer_length = 100
+	tokenizer, embedding = preprocess.generate_embedding(
+		max_tokenizer_length=max_tokenizer_length,
+	)
 	print("\n_________________________________________________________________")
 	print(f"Estimating model: {name}")
 	print("=================================================================\n")
@@ -122,7 +127,10 @@ for name, layers in models.items():
 		estimate(
 			name=name,
 			layers=layers,
+			tokenizer=tokenizer,
+			embedding=embedding,
 			epochs=30,
+			max_tokenizer_length=max_tokenizer_length
 		)
 	except Exception as e:
 		print(e)

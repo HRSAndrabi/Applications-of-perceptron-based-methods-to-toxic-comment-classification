@@ -7,7 +7,7 @@ import os
 import numpy as np
 
 
-def estimate(name:str, layers:list, max_tokenizer_length:int=100, epochs:int=1):
+def estimate(name:str, layers:list, tokenizer, embedding, max_tokenizer_length:int=100, epochs:int=1):
 	"""
 	A method to estimate a model with provided layer specification. Trained model
 	outputs and logs are saved under data/output/model
@@ -16,6 +16,9 @@ def estimate(name:str, layers:list, max_tokenizer_length:int=100, epochs:int=1):
 	* `name (str)`: Name of the model. Output files will be saved under this name.
 	* `layers (list)`: An array of layers to add to the model. All models are 
 	initialised with an untrainable embedding layer by default.
+	* `tokenizer (Tokenizer)`: Tokenizer to use on input text data.
+	* `embedding (np.array)`: Untrainable embedding weights to supply to the 
+	embedding layer.
 	* `max_tokenizer_length (int, optional)`: Max length of tokenised inputs. All
 	inputs are padded or truncated to fit this length. Defaults to 100.
 	* `epochs (int, optional)`: Number of epochs for which to train the model. 
@@ -25,9 +28,6 @@ def estimate(name:str, layers:list, max_tokenizer_length:int=100, epochs:int=1):
 	* `model (Sequential)`: A trained keras.models.Sequential model.
 	* `history`: Training history of the model.
 	"""
-	tokenizer, embedding = preprocess.generate_embedding(
-		max_tokenizer_length=max_tokenizer_length,
-	)
 	train = preprocess.load_dataset(
 		subset="train",
 		tokenizer=tokenizer,
