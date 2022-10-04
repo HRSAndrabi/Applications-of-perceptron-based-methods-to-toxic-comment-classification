@@ -4,7 +4,7 @@ from src.estimate import estimate
 # All models feature an untrainable embedding layer by default
 models = {
 	"1_bi_directional_regularised" : [
-		Bidirectional(LSTM(100, activation="relu")),
+		Bidirectional(LSTM(100, activation="relu", kernel_regularizer="l2")),
 		Dense(128, activation="relu", kernel_regularizer="l2"),
 		Dense(1, activation="sigmoid"),
 	],
