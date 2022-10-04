@@ -1,4 +1,5 @@
 data/input
+data/models/*.h5
 venv
 .vscode
 __pycache__
