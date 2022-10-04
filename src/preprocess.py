@@ -20,6 +20,7 @@ def load_dataset(subset:str, tokenizer:Tokenizer, max_tokenizer_length:int):
 	* `dataset (Dataset)`: Prefetched, cached, and shuffled Dataset from 
 	tensor slices, in batches of 16.
 	"""
+	print(f"Reading data from data/input/{subset}_raw.csv ...")
 	df = pd.read_csv(f"data/input/{subset}_raw.csv")
 	x = df["Comment"].values
 	y = df["Toxicity"].values
@@ -51,11 +52,13 @@ def generate_embedding(max_tokenizer_length:int):
 	to tokenized inputs. Embedding matrix based on pre-trained GloVe 
 	embeddings.
 	"""
+	print("Tokenising data ...")
 	tokenizer = Tokenizer(num_words=10000, oov_token="<OOV>", lower=True)
 	df = pd.read_csv("data/input/train_raw.csv")
 	tokenizer.fit_on_texts(df["Comment"].values)
 	word_index = tokenizer.word_index
 
+	print(f"Applying GloVe embeddings ...")
 	# Read GloVe embeddings
 	embeddings_index = {}
 	with open("data/input/glove.6B/glove.6B.100d.txt") as f:

@@ -1,8 +1,9 @@
 import src.construct_model as construct_model
 import src.preprocess as preprocess
 from keras.callbacks import CSVLogger
-from keras.metrics import Precision, Recall, CategoricalAccuracy
+from keras.metrics import Precision, Recall, Accuracy
 import os
+import numpy as np
 
 
 def estimate(name:str, layers:list, max_tokenizer_length:int=100, epochs:int=1):
@@ -52,17 +53,19 @@ def estimate(name:str, layers:list, max_tokenizer_length:int=100, epochs:int=1):
 
 	pre = Precision()
 	re = Recall()
-	acc = CategoricalAccuracy()
+	acc = Accuracy()
 
 	for batch in validation.as_numpy_iterator(): 
-		X_true, y_true = batch
-		yhat = model.predict(X_true)
-		y_true = y_true.flatten()
-		yhat = yhat.flatten()
+		x, y_true = batch
+		y_pred = (model.predict(x) > 0.5).astype(int)
 		
-		pre.update_state(y_true, yhat)
-		re.update_state(y_true, yhat)
-		acc.update_state(y_true, yhat)
+		x = x.flatten()
+		y_true = y_true.flatten()
+		y_pred = y_pred.flatten()
+		
+		pre.update_state(y_true, y_pred)
+		re.update_state(y_true, y_pred)
+		acc.update_state(y_true, y_pred)
 
 	print(f"Precision: {pre.result().numpy()}, Recall:{re.result().numpy()}, Accuracy:{acc.result().numpy()}")
 
