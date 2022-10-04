@@ -73,5 +73,5 @@ for name, layers in models.items():
 	estimate(
 		name=name,
 		layers=layers,
-		epochs=1,
+		epochs=20,
 	)
