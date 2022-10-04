@@ -122,7 +122,7 @@ for name, layers in models.items():
 		estimate(
 			name=name,
 			layers=layers,
-			epochs=20,
+			epochs=30,
 		)
 	except Exception as e:
 		print(e)
