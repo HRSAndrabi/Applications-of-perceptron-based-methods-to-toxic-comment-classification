@@ -1,11 +1,5 @@
 from keras.layers import LSTM, Bidirectional, Dense, Conv1D, MaxPooling1D, GlobalMaxPooling1D, Flatten
 from src.estimate import estimate
-from datetime import datetime
-import sys
-
-stdout_file = f"logs/{datetime.now().strftime('%d-%m-%Y_%H:%M:%S')}"
-print(f"Writing output to: {stdout_file}.")
-sys.stdout = open(stdout_file, "w")
 
 # All models feature an untrainable embedding layer by default
 # models = {
@@ -140,4 +134,3 @@ for name, layers in models.items():
 	except Exception as e:
 		print(e)
 
-sys.stdout.close()
