@@ -41,18 +41,6 @@ models = {
 		Flatten(),
 		Dense(1, activation="sigmoid"),
 	],
-	"biDirectional_1hl" : [
-		Bidirectional(LSTM(100, activation="relu", kernel_regularizer="l2")),
-		Dense(128, activation="relu", kernel_regularizer="l2"),
-		Flatten(),
-		Dense(1, activation="sigmoid"),
-	],
-	"biDirectional_2hl" : [
-		Bidirectional(LSTM(100, activation="relu", kernel_regularizer="l2")),
-		Dense(128, activation="relu", kernel_regularizer="l2"),
-		Flatten(),
-		Dense(1, activation="sigmoid"),
-	],
 	"2conv_2maxPool_1hl" : [
 		Conv1D(128, 5, activation="relu"),
 		MaxPooling1D(5),
@@ -108,6 +96,18 @@ models = {
 		Conv1D(128, 5, activation="relu"),
 		MaxPooling1D(5),
 		Dense(128, activation="relu", kernel_regularizer="l2"),
+		Dense(128, activation="relu", kernel_regularizer="l2"),
+		Flatten(),
+		Dense(1, activation="sigmoid"),
+	],
+	"lstm_1hl" : [
+		Bidirectional(LSTM(100, activation="relu", kernel_regularizer="l2")),
+		Dense(128, activation="relu", kernel_regularizer="l2"),
+		Flatten(),
+		Dense(1, activation="sigmoid"),
+	],
+	"lstm_2hl" : [
+		Bidirectional(LSTM(100, activation="relu", kernel_regularizer="l2")),
 		Dense(128, activation="relu", kernel_regularizer="l2"),
 		Flatten(),
 		Dense(1, activation="sigmoid"),
