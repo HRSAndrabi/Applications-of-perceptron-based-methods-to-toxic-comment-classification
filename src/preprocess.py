@@ -32,7 +32,7 @@ def load_dataset(subset:str, tokenizer:Tokenizer, max_tokenizer_length:int):
 	dataset = tf.data.Dataset.from_tensor_slices((tokenized_x, y))
 	dataset = dataset.cache()
 	dataset = dataset.shuffle(160000)
-	dataset = dataset.batch(16)
+	dataset = dataset.batch(64)
 	dataset = dataset.prefetch(8)
 	return dataset
 
