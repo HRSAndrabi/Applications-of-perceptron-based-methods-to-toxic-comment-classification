@@ -1,0 +1,193 @@
+\begin{thebibliography}{27}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Abarna et~al.(2022)Abarna, Sheeba, Jayasrilakshmi, and
+  Devaneyan]{abarna2022identification}
+S~Abarna, JI~Sheeba, S~Jayasrilakshmi, and S~Pradeep Devaneyan.
+\newblock Identification of cyber harassment and intention of target users on
+  social media platforms.
+\newblock \emph{Engineering applications of artificial intelligence},
+  115:\penalty0 105283, 2022.
+
+\bibitem[Akhter et~al.(2019)Akhter, Acharjee, and Polash]{akhter2019cyber}
+Arnisha Akhter, Uzzal~K Acharjee, and Md~Masbaul~A Polash.
+\newblock Cyber bullying detection and classification using multinomial
+  na{\"\i}ve bayes and fuzzy logic.
+\newblock \emph{Int. J. Math. Sci. Comput}, 5\penalty0 (4):\penalty0 1--12,
+  2019.
+
+\bibitem[Ayo et~al.(2020)Ayo, Folorunso, Ibharalu, and Osinuga]{ayo2020machine}
+Femi~Emmanuel Ayo, Olusegun Folorunso, Friday~Thomas Ibharalu, and
+  Idowu~Ademola Osinuga.
+\newblock Machine learning techniques for hate speech classification of twitter
+  data: State-of-the-art, future challenges and research directions.
+\newblock \emph{Computer Science Review}, 38:\penalty0 100311, 2020.
+
+\bibitem[Basu et~al.(2021)Basu, Singha~Roy, Tiwari, and
+  Mehta]{basu2021cyberpolice}
+Priyam Basu, Tiasa Singha~Roy, Soham Tiwari, and Saksham Mehta.
+\newblock Cyberpolice: Classification of cyber sexual harassment.
+\newblock In \emph{EPIA Conference on Artificial Intelligence}, pages 701--714.
+  Springer, 2021.
+
+\bibitem[Bojanowski et~al.(2017)Bojanowski, Grave, Joulin, and
+  Mikolov]{bojanowski2017enriching}
+Piotr Bojanowski, Edouard Grave, Armand Joulin, and Tomas Mikolov.
+\newblock Enriching word vectors with subword information.
+\newblock \emph{Transactions of the association for computational linguistics},
+  5:\penalty0 135--146, 2017.
+
+\bibitem[Bourgonje et~al.(2017)Bourgonje, Moreno-Schneider, Srivastava, and
+  Rehm]{bourgonje2017automatic}
+Peter Bourgonje, Julian Moreno-Schneider, Ankit Srivastava, and Georg Rehm.
+\newblock Automatic classification of abusive language and personal attacks in
+  various forms of online communication.
+\newblock In \emph{International Conference of the German Society for
+  Computational Linguistics and Language Technology}, pages 180--191. Springer,
+  Cham, 2017.
+
+\bibitem[Cambria and White(2014)]{cambria2014jumping}
+Erik Cambria and Bebo White.
+\newblock Jumping nlp curves: A review of natural language processing research.
+\newblock \emph{IEEE Computational intelligence magazine}, 9\penalty0
+  (2):\penalty0 48--57, 2014.
+
+\bibitem[Chowdhary(2020)]{chowdhary2020natural}
+KR1442 Chowdhary.
+\newblock Natural language processing.
+\newblock \emph{Fundamentals of artificial intelligence}, pages 603--649, 2020.
+
+\bibitem[Di~Capua et~al.(2016)Di~Capua, Di~Nardo, and
+  Petrosino]{di2016unsupervised}
+Michele Di~Capua, Emanuel Di~Nardo, and Alfredo Petrosino.
+\newblock Unsupervised cyber bullying detection in social networks.
+\newblock In \emph{2016 23rd International conference on pattern recognition
+  (ICPR)}, pages 432--437. IEEE, 2016.
+
+\bibitem[Georgakopoulos et~al.(2018)Georgakopoulos, Tasoulis, Vrahatis, and
+  Plagianakos]{georgakopoulos2018convolutional}
+Spiros~V Georgakopoulos, Sotiris~K Tasoulis, Aristidis~G Vrahatis, and
+  Vassilis~P Plagianakos.
+\newblock Convolutional neural networks for toxic comment classification.
+\newblock In \emph{Proceedings of the 10th hellenic conference on artificial
+  intelligence}, pages 1--6, 2018.
+
+\bibitem[Jones(1972)]{jones1972statistical}
+Karen~Sparck Jones.
+\newblock A statistical interpretation of term specificity and its application
+  in retrieval.
+\newblock \emph{Journal of documentation}, 1972.
+
+\bibitem[Joulin et~al.(2016{\natexlab{a}})Joulin, Grave, Bojanowski, Douze,
+  J{\'e}gou, and Mikolov]{joulin2016fasttext}
+Armand Joulin, Edouard Grave, Piotr Bojanowski, Matthijs Douze, H{\'e}rve
+  J{\'e}gou, and Tomas Mikolov.
+\newblock Fasttext. zip: Compressing text classification models.
+\newblock \emph{arXiv preprint arXiv:1612.03651}, 2016{\natexlab{a}}.
+
+\bibitem[Joulin et~al.(2016{\natexlab{b}})Joulin, Grave, Bojanowski, and
+  Mikolov]{joulin2016bag}
+Armand Joulin, Edouard Grave, Piotr Bojanowski, and Tomas Mikolov.
+\newblock Bag of tricks for efficient text classification.
+\newblock \emph{arXiv preprint arXiv:1607.01759}, 2016{\natexlab{b}}.
+
+\bibitem[Kanan et~al.(2020)Kanan, Aldaaja, and Hawashin]{kanan2020cyber}
+Tarek Kanan, Amal Aldaaja, and Bilal Hawashin.
+\newblock Cyber-bullying and cyber-harassment detection using supervised
+  machine learning techniques in arabic social media contents.
+\newblock \emph{Journal of Internet Technology}, 21\penalty0 (5):\penalty0
+  1409--1421, 2020.
+
+\bibitem[Luhn(1957)]{luhn1957statistical}
+Hans~Peter Luhn.
+\newblock A statistical approach to mechanized encoding and searching of
+  literary information.
+\newblock \emph{IBM Journal of research and development}, 1\penalty0
+  (4):\penalty0 309--317, 1957.
+
+\bibitem[Marwa et~al.(2018)Marwa, Salima, and Souham]{marwa2018deep}
+Tolba Marwa, Ouadfel Salima, and Meshoul Souham.
+\newblock Deep learning for online harassment detection in tweets.
+\newblock In \emph{2018 3rd International Conference on Pattern Analysis and
+  Intelligent Systems (PAIS)}, pages 1--5. IEEE, 2018.
+
+\bibitem[Mikolov et~al.(2013{\natexlab{a}})Mikolov, Chen, Corrado, and
+  Dean]{mikolov2013efficient}
+Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean.
+\newblock Efficient estimation of word representations in vector space.
+\newblock \emph{arXiv preprint arXiv:1301.3781}, 2013{\natexlab{a}}.
+
+\bibitem[Mikolov et~al.(2013{\natexlab{b}})Mikolov, Sutskever, Chen, Corrado,
+  and Dean]{mikolov2013distributed}
+Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg~S Corrado, and Jeff Dean.
+\newblock Distributed representations of words and phrases and their
+  compositionality.
+\newblock \emph{Advances in neural information processing systems}, 26,
+  2013{\natexlab{b}}.
+
+\bibitem[Mullah and Zainon(2021)]{mullah2021advances}
+Nanlir~Sallau Mullah and Wan Mohd Nazmee~Wan Zainon.
+\newblock Advances in machine learning algorithms for hate speech detection in
+  social media: a review.
+\newblock \emph{IEEE Access}, 2021.
+
+\bibitem[Nobata et~al.(2016)Nobata, Tetreault, Thomas, Mehdad, and
+  Chang]{nobata2016abusive}
+Chikashi Nobata, Joel Tetreault, Achint Thomas, Yashar Mehdad, and Yi~Chang.
+\newblock Abusive language detection in online user content.
+\newblock In \emph{Proceedings of the 25th international conference on world
+  wide web}, pages 145--153, 2016.
+
+\bibitem[Pennington et~al.(2014)Pennington, Socher, and
+  Manning]{pennington2014glove}
+Jeffrey Pennington, Richard Socher, and Christopher~D Manning.
+\newblock Glove: Global vectors for word representation.
+\newblock In \emph{Proceedings of the 2014 conference on empirical methods in
+  natural language processing (EMNLP)}, pages 1532--1543, 2014.
+
+\bibitem[Risch and Krestel(2020)]{risch2020toxic}
+Julian Risch and Ralf Krestel.
+\newblock Toxic comment detection in online discussions.
+\newblock In \emph{Deep learning-based approaches for sentiment analysis},
+  pages 85--109. Springer, 2020.
+
+\bibitem[Rizos et~al.(2019)Rizos, Hemker, and Schuller]{rizos2019augment}
+Georgios Rizos, Konstantin Hemker, and Bj{\"o}rn Schuller.
+\newblock Augment to prevent: short-text data augmentation in deep learning for
+  hate-speech classification.
+\newblock In \emph{Proceedings of the 28th ACM international conference on
+  information and knowledge management}, pages 991--1000, 2019.
+
+\bibitem[Selva~Birunda and Kanniga~Devi(2021)]{selva2021review}
+S~Selva~Birunda and R~Kanniga~Devi.
+\newblock A review on word embedding techniques for text classification.
+\newblock \emph{Innovative Data Communication Technologies and Application},
+  pages 267--281, 2021.
+
+\bibitem[Van~Aken et~al.(2018)Van~Aken, Risch, Krestel, and
+  L{\"o}ser]{van2018challenges}
+Betty Van~Aken, Julian Risch, Ralf Krestel, and Alexander L{\"o}ser.
+\newblock Challenges for toxic comment classification: An in-depth error
+  analysis.
+\newblock \emph{arXiv preprint arXiv:1809.07572}, 2018.
+
+\bibitem[Vidgen and Derczynski(2020)]{vidgen2020directions}
+Bertie Vidgen and Leon Derczynski.
+\newblock Directions in abusive language training data, a systematic review:
+  Garbage in, garbage out.
+\newblock \emph{Plos one}, 15\penalty0 (12):\penalty0 e0243300, 2020.
+
+\bibitem[Yang et~al.(2019)Yang, Peng, Ghosh, Shilon, Ma, Moore, and
+  Predovic]{yang2019exploring}
+Fan Yang, Xiaochang Peng, Gargi Ghosh, Reshef Shilon, Hao Ma, Eider Moore, and
+  Goran Predovic.
+\newblock Exploring deep multimodal fusion of text and photo for hate speech
+  classification.
+\newblock In \emph{Proceedings of the third workshop on abusive language
+  online}, pages 11--18, 2019.
+
+\end{thebibliography}

@@ -4,6 +4,8 @@
 \usepackage{lipsum}
 \usepackage{subfiles} 
 \usepackage{setspace}
+\usepackage[square,sort,comma,numbers]{natbib}
+\usepackage[colorlinks,citecolor=blue,urlcolor=blue,bookmarks=false,hypertexnames=true]{hyperref} 
 \renewcommand{\baselinestretch}{1.15} 
 
 % \pretitle{\begin{center}\Huge\bfseries}
@@ -22,5 +24,13 @@
 
 \section{Introduction}\label{sec:introduction}
 \subfile{sections/introduction}
+
+\section{Related Work}\label{sec:related-work}
+\subfile{sections/related-work}
+
+\newpage
+
+\bibliography{main}
+\bibliographystyle{plainnat}
 
 \end{document}
