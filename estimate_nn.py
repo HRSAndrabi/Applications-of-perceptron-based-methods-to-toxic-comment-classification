@@ -1,15 +1,16 @@
-from keras.layers import LSTM, Bidirectional, Dense, Conv1D, MaxPooling1D, GlobalMaxPooling1D, Flatten
+from keras.layers import LSTM, Bidirectional, Dense, Conv1D, MaxPooling1D, GlobalMaxPooling1D, Flatten, InputLayer
 from src.estimate import estimate
 import src.preprocess as preprocess
 
 # All models feature an untrainable embedding layer by default
 models = {
-	"1hl" : [
+	"1hl_bert" : [
+		InputLayer(input_shape=(384,)),
 		Dense(128, activation="relu", kernel_regularizer="l2"),
 		Flatten(),
 		Dense(1, activation="sigmoid"),
 	],
-	"2hl" : [
+	"2hl_bert" : [
 		Dense(128, activation="relu", kernel_regularizer="l2"),
 		Dense(128, activation="relu", kernel_regularizer="l2"),
 		Flatten(),
@@ -27,7 +28,7 @@ models = {
 	# 	Flatten(),
 	# 	Dense(1, activation="sigmoid"),
 	# ],
-	"conv_maxPool_1hl" : [
+	"conv_maxPool_1hl_bert" : [
 		Conv1D(128, 5, activation="relu"),
 		MaxPooling1D(5),
 		Dense(128, activation="relu", kernel_regularizer="l2"),
@@ -130,8 +131,8 @@ for name, layers in models.items():
 			tokenizer=tokenizer,
 			embedding=embedding,
 			epochs=10,
-			max_tokenizer_length=max_tokenizer_length
+			max_tokenizer_length=max_tokenizer_length,
+			embedding_method="bert",
 		)
 	except Exception as e:
 		print(e)
-

@@ -3,7 +3,7 @@ from keras.layers import Embedding
 from keras.metrics import Precision, Recall, AUC
 from keras.initializers import Constant
 
-def construct_model(embedding, max_tokenizer_length:int, layers:list):
+def construct_model(embedding, embedding_method, max_tokenizer_length:int, layers:list):
 	"""
 	Constructs model based on supplied embeddings weights and intermediate layers.
 	All models feature an embedding layer by default.
@@ -20,14 +20,15 @@ def construct_model(embedding, max_tokenizer_length:int, layers:list):
 	* `model (Sequential)`: Sequential model of specified architecture.
 	"""
 	model = Sequential()
-	model.add(Embedding(
-		input_dim=len(embedding),
-		output_dim=max_tokenizer_length,
-		# weights=[embedding],
-		embeddings_initializer=Constant(embedding),
-		input_length=max_tokenizer_length,
-		trainable=False
-	))
+	if embedding_method == "glove":
+		model.add(Embedding(
+			input_dim=len(embedding),
+			output_dim=max_tokenizer_length,
+			# weights=[embedding],
+			embeddings_initializer=Constant(embedding),
+			input_length=max_tokenizer_length,
+			trainable=False
+		))
 	for layer in layers:
 		model.add(layer)
 

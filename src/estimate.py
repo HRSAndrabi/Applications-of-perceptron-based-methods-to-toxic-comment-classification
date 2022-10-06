@@ -7,7 +7,7 @@ import os
 import numpy as np
 
 
-def estimate(name:str, layers:list, tokenizer, embedding, max_tokenizer_length:int=100, epochs:int=1):
+def estimate(name:str, layers:list, tokenizer, embedding, embedding_method, max_tokenizer_length:int=100, epochs:int=1):
 	"""
 	A method to estimate a model with provided layer specification. Trained model
 	outputs and logs are saved under data/output/model
@@ -30,16 +30,19 @@ def estimate(name:str, layers:list, tokenizer, embedding, max_tokenizer_length:i
 	"""
 	train = preprocess.load_dataset(
 		subset="train",
+		embedding_method=embedding_method,
 		tokenizer=tokenizer,
 		max_tokenizer_length=max_tokenizer_length,
 	)
 	validation = preprocess.load_dataset(
 		subset="dev",
 		tokenizer=tokenizer,
+		embedding_method=embedding_method,
 		max_tokenizer_length=max_tokenizer_length,
 	)
 	model = construct_model.construct_model(
 		embedding=embedding,
+		embedding_method=embedding_method,
 		max_tokenizer_length=max_tokenizer_length,
 		layers=layers,
 	)

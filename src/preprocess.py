@@ -4,7 +4,7 @@ import tensorflow as tf
 from keras.preprocessing.text import Tokenizer
 from keras.utils import pad_sequences
 
-def load_dataset(subset:str, tokenizer:Tokenizer, max_tokenizer_length:int):
+def load_dataset(subset:str, embedding_method:str, tokenizer:Tokenizer, max_tokenizer_length:int):
 	"""
 	Loads tokenized, prefetched, cached, shuffled, and batched `Dataset` 
 	from tensor slices.
@@ -20,22 +20,55 @@ def load_dataset(subset:str, tokenizer:Tokenizer, max_tokenizer_length:int):
 	* `dataset (Dataset)`: Prefetched, cached, and shuffled Dataset from 
 	tensor slices, in batches of 16.
 	"""
-	print(f"Reading data from data/input/{subset}_raw.csv ...")
-	df = pd.read_csv(f"data/input/{subset}_raw.csv")
-	x = df["Comment"].values
-	y = df["Toxicity"].values
-	tokenized_x = pad_sequences(
-		tokenizer.texts_to_sequences(x), 
-		maxlen=max_tokenizer_length, 
-		padding="post", 
-		truncating="post"
-	)
-	dataset = tf.data.Dataset.from_tensor_slices((tokenized_x, y))
-	dataset = dataset.cache()
-	dataset = dataset.shuffle(160000)
-	dataset = dataset.batch(64)
-	dataset = dataset.prefetch(8)
-	return dataset
+	if embedding_method == "glove":
+		print(f"Reading data from data/input/{subset}_raw.csv ...")
+		df = pd.read_csv(f"data/input/{subset}_raw.csv")
+		x = df["Comment"].values
+		y = df["Toxicity"].values
+		tokenized_x = pad_sequences(
+			tokenizer.texts_to_sequences(x), 
+			maxlen=max_tokenizer_length, 
+			padding="post", 
+			truncating="post"
+		)
+		dataset = tf.data.Dataset.from_tensor_slices((tokenized_x, y))
+		dataset = dataset.cache()
+		dataset = dataset.shuffle(160000)
+		dataset = dataset.batch(64)
+		dataset = dataset.prefetch(8)
+		return dataset
+	
+	elif embedding_method == "tfidf":
+		print(f"Reading data from data/input/{subset}_tfidf.csv ...")
+		df = pd.read_csv(f"data/input/{subset}_tfidf.csv")
+		print("Aggregating TFIDF embeddings ...")
+		df["Comment"] = df[df.columns[df.columns.get_loc("Comment"):]].to_numpy().tolist()
+		df["Comment"] = df["Comment"].apply(lambda x: np.asarray(x, dtype=np.float))
+		x = df["Comment"].values
+		y = df["Toxicity"].values
+		x = list(map(list, zip(*x)))
+		dataset = tf.data.Dataset.from_tensor_slices((x, y))
+		dataset = dataset.cache()
+		dataset = dataset.shuffle(160000)
+		dataset = dataset.batch(64)
+		dataset = dataset.prefetch(8)
+		return dataset
+	
+	elif embedding_method == "bert":
+		print(f"Reading data from data/input/{subset}_embedding.csv ...")
+		df = pd.read_csv(f"data/input/{subset}_embedding.csv")
+		print("Aggregating sentence_BERT embeddings ...")
+		df["Comment"] = df[df.columns[df.columns.get_loc("Comment"):]].to_numpy().tolist()
+		df["Comment"] = df["Comment"].apply(lambda x: np.asarray(x, dtype=np.float))
+		x = df["Comment"].values
+		y = df["Toxicity"].values
+		x = list(map(list, zip(*x)))
+		dataset = tf.data.Dataset.from_tensor_slices((x, y))
+		dataset = dataset.cache()
+		dataset = dataset.shuffle(160000)
+		dataset = dataset.batch(64)
+		dataset = dataset.prefetch(8)
+		return dataset
 
 def generate_embedding(max_tokenizer_length:int):
 	"""
