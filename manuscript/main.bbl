@@ -1,4 +1,4 @@
-\begin{thebibliography}{27}
+\begin{thebibliography}{29}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -19,6 +19,13 @@ Arnisha Akhter, Uzzal~K Acharjee, and Md~Masbaul~A Polash.
   na{\"\i}ve bayes and fuzzy logic.
 \newblock \emph{Int. J. Math. Sci. Comput}, 5\penalty0 (4):\penalty0 1--12,
   2019.
+
+\bibitem[Androcec(2020)]{androcec2020machine}
+Darko Androcec.
+\newblock Machine learning methods for toxic comment classification: a
+  systematic review.
+\newblock \emph{Acta Universitatis Sapientiae, Informatica}, 12\penalty0
+  (2):\penalty0 205--216, 2020.
 
 \bibitem[Ayo et~al.(2020)Ayo, Folorunso, Ibharalu, and Osinuga]{ayo2020machine}
 Femi~Emmanuel Ayo, Olusegun Folorunso, Friday~Thomas Ibharalu, and
@@ -148,6 +155,13 @@ Jeffrey Pennington, Richard Socher, and Christopher~D Manning.
 \newblock Glove: Global vectors for word representation.
 \newblock In \emph{Proceedings of the 2014 conference on empirical methods in
   natural language processing (EMNLP)}, pages 1532--1543, 2014.
+
+\bibitem[Rawat and Wang(2017)]{rawat2017deep}
+Waseem Rawat and Zenghui Wang.
+\newblock Deep convolutional neural networks for image classification: A
+  comprehensive review.
+\newblock \emph{Neural computation}, 29\penalty0 (9):\penalty0 2352--2449,
+  2017.
 
 \bibitem[Risch and Krestel(2020)]{risch2020toxic}
 Julian Risch and Ralf Krestel.

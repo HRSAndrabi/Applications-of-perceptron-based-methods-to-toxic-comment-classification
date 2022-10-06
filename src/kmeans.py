@@ -1,6 +1,6 @@
+from sklearn.cluster import KMeans
 import pandas as pd
 import numpy as np
-from sklearn.cluster import KMeans
 from nltk.corpus import stopwords
 
 def load_df(dataset, embedding_method:str="glove", glove_aggregation_func:str="avg"):
@@ -87,14 +87,17 @@ def estimate(embedding_method:str="glove", ouput_file_name:str="",  glove_aggreg
 		embedding_method=embedding_method,
 		glove_aggregation_func=glove_aggregation_func,
 	)
-
-	model = KMeans(n_clusters=2)
-	model.fit(x_train, y_train)
-
-	print(f"Train accuracy: {model.score(x_train, y_train)}")
-	print(f"Validation accuracy: {model.score(x_val, y_val)}")
+	
+	print("Estimating model ...")
+	model = KMeans(n_clusters=2, n_init=10)
+	model.fit(x_train)
+	
+	train_df["Toxicity_pred"] = model.predict(x_train)
+	print(f"Train accuracy: {sum(train_df['Toxicity'] == train_df['Toxicity_pred'])/len(train_df)}")
 
 	val_df["Toxicity_pred"] = model.predict(x_val)
+	print(f"Validation accuracy: {sum(val_df['Toxicity'] == val_df['Toxicity_pred'])/len(val_df)}")
+	val_df = val_df.loc[:, ~val_df.columns.str.contains('^Unnamed')]
 	val_df.drop(
 		["Comment"], axis=1
 	).to_csv(
@@ -102,15 +105,14 @@ def estimate(embedding_method:str="glove", ouput_file_name:str="",  glove_aggreg
 		index=False
 	)
 
-	val_df["Toxicity_pred"] = model.predict(x_test)
-	test_df.drop(
-		["Comment"], axis=1
-	).to_csv(
+	test_df["Toxicity"] = model.predict(x_test)
+	test_df[["ID", "Toxicity"]].to_csv(
 		path_or_buf=f"data/output/test/{ouput_file_name}.csv", 
 		index=False
 	)
 
 estimate(
-	embedding_method="bert",
-	ouput_file_name="kmeans_bert"
+	embedding_method="glove",
+	ouput_file_name="kmeans_glove_avg",
+	glove_aggregation_func="avg",
 )
