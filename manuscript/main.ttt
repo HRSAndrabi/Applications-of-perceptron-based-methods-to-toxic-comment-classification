@@ -15,3 +15,43 @@
         \bottomrule
     \end{tabular}
 \end{table}
+\efloatseparator
+ 
+\begin{table}[h]
+\caption{Model structure and word-embedding combinations \label{table:model-menu}}
+    \centering
+    \begin{tabular}{lllll}
+        \toprule
+        Model & Word-embedding methodology \\
+        \midrule
+\addlinespace{}
+        Logistic regression & \parbox{7.5cm}{TF-IDF embeddings}\\
+\addlinespace{}
+Logistic regression & \parbox{7.5cm}{sentence-BERT embeddings}\\
+\addlinespace{}
+Logistic regression & \parbox{7.5cm}{GloVe embeddings (minimum across 100 dimensions)}\\
+\addlinespace{}
+Logistic regression & \parbox{7.5cm}{GloVe embeddings (maximum across 100 dimensions)}\\
+\addlinespace{}
+Logistic regression & \parbox{7.5cm}{GloVe embeddings (average across 100 dimensions)}\\
+\addlinespace{}
+        Shallow neural network (NN) & \parbox{7.5cm}{TF-IDF embeddings}\\
+\addlinespace{}
+Shallow neural network (NN) & \parbox{7.5cm}{sentence-BERT embeddings}\\
+\addlinespace{}
+Shallow neural network (NN) & \parbox{7.5cm}{GloVe embeddings}\\
+\addlinespace{}
+Deep neural network (DNN) & \parbox{7.5cm}{TF-IDF embeddings}\\
+\addlinespace{}
+Deep neural network (DNN) & \parbox{7.5cm}{sentence-BERT embeddings}\\
+\addlinespace{}
+Deep neural network (DNN) & \parbox{7.5cm}{GloVe embeddings}\\
+\addlinespace{}
+Convolutional neural network (CNN) & \parbox{7.5cm}{TF-IDF embeddings}\\
+\addlinespace{}
+Convolutional neural network (CNN) & \parbox{7.5cm}{sentence-BERT embeddings}\\
+\addlinespace{}
+Convolutional neural network (CNN) & \parbox{7.5cm}{GloVe embeddings}\\
+        \bottomrule
+    \end{tabular}
+\end{table}

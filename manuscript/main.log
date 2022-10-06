@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.28)  7 OCT 2022 03:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.28)  7 OCT 2022 05:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -361,29 +361,29 @@ LaTeX Font Info:    External font `cmex10' loaded for size
  (main.ttt)
 \openout3 = `main.fff'.
 
- (main.fff)) (./sections/experimental-method.tex) [3] (./main.bbl [4] [5]) AED endfloat: Processing end Figures and Tables [6] (./main.lof)
+ (main.fff)) (./sections/experimental-method.tex [3]) [4] (./main.bbl [5] [6]) AED endfloat: Processing end Figures and Tables [7] (./main.lof)
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
- [7
+ [8
 
 
 ] (./main.fff
-<graphics/toxic_word_freq.pdf, id=129, 547.72734pt x 211.04503pt>
+<graphics/toxic_word_freq.pdf, id=139, 547.72734pt x 211.04503pt>
 File: graphics/toxic_word_freq.pdf Graphic file (type pdf)
 <use graphics/toxic_word_freq.pdf>
 Package pdftex.def Info: graphics/toxic_word_freq.pdf  used on input line 2.
 (pdftex.def)             Requested size: 397.485pt x 153.15668pt.
-<graphics/nontoxic_word_freq.pdf, id=130, 547.72734pt x 211.57278pt>
+<graphics/nontoxic_word_freq.pdf, id=140, 547.72734pt x 211.57278pt>
 File: graphics/nontoxic_word_freq.pdf Graphic file (type pdf)
 <use graphics/nontoxic_word_freq.pdf>
 Package pdftex.def Info: graphics/nontoxic_word_freq.pdf  used on input line 9.
 (pdftex.def)             Requested size: 397.485pt x 153.53967pt.
-) [8 <./graphics/toxic_word_freq.pdf> <./graphics/nontoxic_word_freq.pdf>] (./main.lot)
+) [9 <./graphics/toxic_word_freq.pdf> <./graphics/nontoxic_word_freq.pdf>] (./main.lot)
 \tf@lot=\write6
 \openout6 = `main.lot'.
 
- [9
+ [10
 
 
 ] (./main.ttt
@@ -391,22 +391,27 @@ Overfull \hbox (6.30098pt too wide) in paragraph at lines 4--17
  [][] 
  []
 
-) [10
+
+Overfull \hbox (6.07768pt too wide) in paragraph at lines 23--57
+ [][] 
+ []
+
+) [11
 
 ] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 11520 strings out of 478268
- 193730 string characters out of 5846347
- 570740 words of memory out of 5000000
- 29507 multiletter control sequences out of 15000+600000
+ 11527 strings out of 478268
+ 193813 string characters out of 5846347
+ 570821 words of memory out of 5000000
+ 29508 multiletter control sequences out of 15000+600000
  474327 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,10n,77p,1243b,486s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (10 pages, 160940 bytes).
+Output written on main.pdf (11 pages, 166220 bytes).
 PDF statistics:
- 202 PDF objects out of 1000 (max. 8388607)
- 170 compressed objects within 2 object streams
- 53 named destinations out of 1000 (max. 500000)
+ 214 PDF objects out of 1000 (max. 8388607)
+ 181 compressed objects within 2 object streams
+ 59 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,1 +1,56 @@
 % Experimental method
+
+The following section outlines model architectures and estimation methodology employed to extract dependency between words and phrases in textual comments. To explicate further, consider the following example comment: ``Muslims hate gays and want them dead''. When viewed in isolation, individual words such as: ``Muslims'', and ``gays'' are not particularly indicative of toxic motivations --- these words may appear in a variety of perfectly healthy discussions. Toxic motives online become discernible when words appear in particular combinations, such as ``hate gays'', or ``want them dead''. In such examples, it is clear that effective classification of intent requires an understanding of the encoding of syntactic patterns based on relative positions of critical words. Indeed, these are the patterns that word-embedding methodologies aim to capture.
+
+Leveraging three independent word-embedding techniques introduced in Section 3, I estimate the classification performance of three popular machine-learning frameworks: k-nearest neighbours; (2) logistic regression; and (3) Convolutional Neural network. To evaluate the models, I employ a series of standard metrics used in classification tasks: accuracy, precision, recall, and F1 score. I assess model performance using the total dataset, and then separately across subsets of comments mentioning particular identity subclasses. In total, my analysis estimates fourteen combinations of model structure and word-embedding, summarised in Table \ref{table:model-menu}.
+
+\subsection*{4.1. Logistic regression model}
+The analysis implements a binary logistic regression model to predict toxicity. To account for proportionally low prevalence of `toxic' labelled comments in the input dataset, penalties for toxicity class weights are set to be inversely proportional to the prevalence of classes in the input dataset. Subsequently, the estimation process imposes larger penalties for inaccurate classifications of `toxic' labels, as compared to `non-toxic' labels. Estimation occurs with L2 regularisation of weights.
+
+\subsection*{4.2. Shallow neural network (NN) model}
+Given substantial non-linear processing has already occurred in pre-trained sentence-BERT and GloVe word-embeddings, an extensive number of hidden layers may not be required to sufficiently capture unaccounted non-linearity in the input-output relationship. Accordingly, I implement a shallow neural network (NN) consisting of a pre-trained word-embedding  layer, a single fully-connected hidden layer with 128 nodes, and an output layer with a sigmoid activation function. Hidden nodes are configured with Rectified Linear-unit (ReLU) activation functions.
+
+\subsection*{4.3. Deep neural network (DNN) model}
+Deep neural networks are well-studied to exhibit exceptional performance in sentiment-analysis tasks. I implement a DNN consisting of a pre-trained word-embedding  layer, 2 fully-connected hidden layers single hidden layer with 128 nodes each, and an output layer with a sigmoid activation function. As with the NN, hidden nodes are configured with Rectified Linear-unit (ReLU) activation functions.
+
+\subsection*{4.4. Convolutional neural network (CNN) model}
+Among the considered approaches, applications of convolutional neural networks to the sentiment-classification tasks are perhaps the most well-studied. I estimate a convolutional neural network (CNN) consisting of a pre-trained word-embedding layer, a single fully-connected hidden layer with 128 nodes, and an output layer with a sigmoid activation function. Hidden nodes are configured with Rectified Linear-unit (ReLU) activation functions.
+
+\begin{table}[h]
+	\caption{Model structure and word-embedding combinations \label{table:model-menu}}
+    \centering
+    \begin{tabular}{lllll}
+        \toprule
+        Model & Word-embedding methodology \\
+        \midrule
+		\addlinespace{}
+        Logistic regression & \parbox{7.5cm}{TF-IDF embeddings}\\
+		\addlinespace{}
+		Logistic regression & \parbox{7.5cm}{sentence-BERT embeddings}\\
+		\addlinespace{}
+		Logistic regression & \parbox{7.5cm}{GloVe embeddings (minimum across 100 dimensions)}\\
+		\addlinespace{}
+		Logistic regression & \parbox{7.5cm}{GloVe embeddings (maximum across 100 dimensions)}\\
+		\addlinespace{}
+		Logistic regression & \parbox{7.5cm}{GloVe embeddings (average across 100 dimensions)}\\
+		\addlinespace{}
+        Shallow neural network (NN) & \parbox{7.5cm}{TF-IDF embeddings}\\
+		\addlinespace{}
+		Shallow neural network (NN) & \parbox{7.5cm}{sentence-BERT embeddings}\\
+		\addlinespace{}
+		Shallow neural network (NN) & \parbox{7.5cm}{GloVe embeddings}\\
+		\addlinespace{}
+		Deep neural network (DNN) & \parbox{7.5cm}{TF-IDF embeddings}\\
+		\addlinespace{}
+		Deep neural network (DNN) & \parbox{7.5cm}{sentence-BERT embeddings}\\
+		\addlinespace{}
+		Deep neural network (DNN) & \parbox{7.5cm}{GloVe embeddings}\\
+		\addlinespace{}
+		Convolutional neural network (CNN) & \parbox{7.5cm}{TF-IDF embeddings}\\
+		\addlinespace{}
+		Convolutional neural network (CNN) & \parbox{7.5cm}{sentence-BERT embeddings}\\
+		\addlinespace{}
+		Convolutional neural network (CNN) & \parbox{7.5cm}{GloVe embeddings}\\
+        \bottomrule
+    \end{tabular}
+\end{table}
