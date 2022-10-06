@@ -3,3 +3,4 @@ data/models/*.h5
 venv
 .vscode
 __pycache__
+data/output/val
