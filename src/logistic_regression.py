@@ -98,6 +98,7 @@ def estimate(embedding_method:str="glove", ouput_file_name:str="",  glove_aggreg
 	print(f"Validation accuracy: {model.score(x_val, y_val)}")
 
 	val_df["Toxicity_pred"] = model.predict(x_val)
+	val_df = val_df.loc[:, ~val_df.columns.str.contains('^Unnamed')]
 	val_df.drop(
 		["Comment"], axis=1
 	).to_csv(
@@ -105,15 +106,13 @@ def estimate(embedding_method:str="glove", ouput_file_name:str="",  glove_aggreg
 		index=False
 	)
 
-	val_df["Toxicity_pred"] = model.predict(x_test)
-	test_df.drop(
-		["Comment"], axis=1
-	).to_csv(
+	test_df["Toxicity"] = model.predict(x_test)
+	test_df[["ID", "Toxicity"]].to_csv(
 		path_or_buf=f"data/output/test/{ouput_file_name}.csv", 
 		index=False
 	)
 
 estimate(
-	embedding_method="bert",
-	ouput_file_name="logistic_bert"
+	embedding_method="tfidf",
+	ouput_file_name="logistic_tfidf"
 )
