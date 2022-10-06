@@ -1,4 +1,4 @@
-\begin{thebibliography}{27}
+\begin{thebibliography}{31}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -103,12 +103,25 @@ Spiros~V Georgakopoulos, Sotiris~K Tasoulis, Aristidis~G Vrahatis, and
 \newblock In \emph{Proceedings of the 10th hellenic conference on artificial
   intelligence}, pages 1--6, 2018.
 
+\bibitem[Jones(1972)]{jones1972statistical}
+Karen~Sparck Jones.
+\newblock A statistical interpretation of term specificity and its application
+  in retrieval.
+\newblock \emph{Journal of documentation}, 1972.
+
 \bibitem[Kanan et~al.(2020)Kanan, Aldaaja, and Hawashin]{kanan2020cyber}
 Tarek Kanan, Amal Aldaaja, and Bilal Hawashin.
 \newblock Cyber-bullying and cyber-harassment detection using supervised
   machine learning techniques in arabic social media contents.
 \newblock \emph{Journal of Internet Technology}, 21\penalty0 (5):\penalty0
   1409--1421, 2020.
+
+\bibitem[Luhn(1957)]{luhn1957statistical}
+Hans~Peter Luhn.
+\newblock A statistical approach to mechanized encoding and searching of
+  literary information.
+\newblock \emph{IBM Journal of research and development}, 1\penalty0
+  (4):\penalty0 309--317, 1957.
 
 \bibitem[Marwa et~al.(2018)Marwa, Salima, and Souham]{marwa2018deep}
 Tolba Marwa, Ouadfel Salima, and Meshoul Souham.
@@ -129,12 +142,24 @@ Chikashi Nobata, Joel Tetreault, Achint Thomas, Yashar Mehdad, and Yi~Chang.
 \newblock In \emph{Proceedings of the 25th international conference on world
   wide web}, pages 145--153, 2016.
 
+\bibitem[Pennington et~al.(2014)Pennington, Socher, and
+  Manning]{pennington2014glove}
+Jeffrey Pennington, Richard Socher, and Christopher~D Manning.
+\newblock Glove: Global vectors for word representation.
+\newblock In \emph{Proceedings of the 2014 conference on empirical methods in
+  natural language processing (EMNLP)}, pages 1532--1543, 2014.
+
 \bibitem[Rawat and Wang(2017)]{rawat2017deep}
 Waseem Rawat and Zenghui Wang.
 \newblock Deep convolutional neural networks for image classification: A
   comprehensive review.
 \newblock \emph{Neural computation}, 29\penalty0 (9):\penalty0 2352--2449,
   2017.
+
+\bibitem[Reimers and Gurevych(2019)]{reimers2019sentence}
+Nils Reimers and Iryna Gurevych.
+\newblock Sentence-bert: Sentence embeddings using siamese bert-networks.
+\newblock \emph{arXiv preprint arXiv:1908.10084}, 2019.
 
 \bibitem[Ribeiro and Silva(2019)]{ribeiro2019inf}
 Alison Ribeiro and N{\'a}dia Silva.

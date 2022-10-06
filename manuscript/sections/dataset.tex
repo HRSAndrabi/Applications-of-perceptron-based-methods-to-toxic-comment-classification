@@ -1,0 +1,45 @@
+% Dataset
+
+The analysis in this note uses the Jigsaw/Conversation AI Unintended Bias in Toxicity Classification competition dataset (available online: \url{https://www.kaggle.com/competitions/jigsaw-unintended-bias-in-toxicity-classification/overview/description}). The dataset contains 155,000 annotated comments collected from an archive of the Civil Comments platform: a commenting plugin for online news sites. 
+These comments were annoated by human raters usining binary toxicity labels, as well as a series of binary identity labels representing social identities mentioned in the comments. 
+To obtain toxicity labels, each comment was presented to at least 10 human raters, who were prompted to rate comment toxicity according to predefined critera presented in Table \ref{table:toxicity}. 
+Notably, all comments included in this dataset were subject to a peer-review screening process imposed by Civil Comments. 
+This manual peer-review system was designed to filter out obvious instances toxicity, and substantially limits diversity of vocabulary across the dataset. 
+In particular, the dataset contains very few instances of profane language, and is unlikely to generalise effectively to contexts with less restrictive tenets of commenting etiquette.
+Figures \ref{fig:toxic-word-frequency} and \ref{fig:non-toxic-word-frequency} present visualisations of the most frequent words appearing in toxic and non-toxic comments respectively. 
+
+\subsection*{3.1. Pre-processing}
+
+Textual content of comments were cleaned and pre-processed using word-embedding techniques. In particular, all comments were normalised to lower-case, stripped of punctutation marks and non-alphabetic characters, and then tokenised into vector representations through word-embedding techniques. I apply pre-processing using three popular word-embedding represetations: term frequency - inverse document frequency (TF-IDF) \cite{luhn1957statistical,jones1972statistical}; Global Vectors for Word Representation (GloVe) \cite{pennington2014glove}; and Sentence-BERT \cite{reimers2019sentence}. Each of these techniques attempts to generate vector representations of textual content, such that sentences arising from similar contexts exhibit similar vector representations. Thereafter, the total dataset is partitioned into train and validation sets, with 140,000 and 15,000 instances allocated to each set respectively. 
+
+
+\begin{table}[h]
+	\caption{Jigsaw/Coversation AI toxicity labelling criteria \label{table:toxicity}}
+    \centering
+    \begin{tabular}{lllll}
+        \toprule
+        Label & Criteria \\
+        \midrule
+        Very Toxic & \parbox{11cm}{A very hateful, aggressive, or disrespectful comment that is very likely to make you leave a discussion or give up on sharing your perspective}\\
+		\addlinespace{}
+        Toxic & \parbox{10cm}{A rude, disrespectful, or unreasonable comment that is somewhat likely to make you leave a discussion or give up on sharing your perspective} & \\
+		\addlinespace{}
+        Hard to say & \parbox{10cm}{No criteria given} & \\
+		\addlinespace{}
+        Not toxic & \parbox{10cm}{No criteria given} & \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{figure}
+	\includegraphics[width=1.0\textwidth]{graphics/toxic_word_freq.pdf}
+    \caption{Words appearing most frequently in toxic comments.  Frequencies represent the number of times an indicated word appears in a comment with a 'toxic' annotation. The top twenty-five most frequent words are labelled.}
+	\label{fig:toxic-word-frequency}
+\end{figure}
+
+
+\begin{figure}
+	\includegraphics[width=1.0\textwidth]{graphics/nontoxic_word_freq.pdf}
+    \caption{Words appearing most frequently in non-toxic comments. Frequencies represent the number of times an indicated word appears in a comment with a 'non-toxic' annotation. The top twenty-five most frequent words are labelled.}
+	\label{fig:non-toxic-word-frequency}
+\end{figure}

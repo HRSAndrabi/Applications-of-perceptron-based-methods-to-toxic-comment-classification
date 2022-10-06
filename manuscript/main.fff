@@ -1,0 +1,12 @@
+\begin{figure}
+\includegraphics[width=1.0\textwidth]{graphics/toxic_word_freq.pdf}
+    \caption{Words appearing most frequently in toxic comments.  Frequencies represent the number of times an indicated word appears in a comment with a 'toxic' annotation. The top twenty-five most frequent words are labelled.}
+\label{fig:toxic-word-frequency}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+\includegraphics[width=1.0\textwidth]{graphics/nontoxic_word_freq.pdf}
+    \caption{Words appearing most frequently in non-toxic comments. Frequencies represent the number of times an indicated word appears in a comment with a 'non-toxic' annotation. The top twenty-five most frequent words are labelled.}
+\label{fig:non-toxic-word-frequency}
+\end{figure}

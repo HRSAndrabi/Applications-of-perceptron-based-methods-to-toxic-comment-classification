@@ -1,4 +1,9 @@
+import pandas as pd
 
-test_dict = {"yes": 1, "no": 2}
+train = pd.read_csv("data/input/train_raw.csv")
+val = pd.read_csv("data/input/dev_raw.csv")
+test = pd.read_csv("data/input/test_raw.csv")
 
-print(test_dict.get("yes"))
+print(len(train))
+print(len(val))
+print(len(test))
