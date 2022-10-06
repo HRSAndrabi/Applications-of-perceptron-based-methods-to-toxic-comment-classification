@@ -27,4 +27,7 @@ def make_predictions(model_name:str, subset, model, tokenizer):
 	# test_dataset.to_csv(f"data/output/{subset}/{model_name}.csv", columns=["ID", "Toxicity"], index=False)
 	test_dataset.to_csv(f"data/output/{subset}/{model_name}.csv", index=False)
 
-model = tf.keras.models.load_model("data/models/1hl_bert.h5")
+# model = tf.keras.models.load_model("data/models/1hl_bert.h5")
+# make_predictions(
+
+# )
