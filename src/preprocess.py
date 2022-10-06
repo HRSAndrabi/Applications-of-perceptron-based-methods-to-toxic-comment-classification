@@ -47,6 +47,7 @@ def load_dataset(subset:str, embedding_method:str, tokenizer:Tokenizer, max_toke
 		x = df["Comment"].values
 		y = df["Toxicity"].values
 		x = list(map(list, zip(*x)))
+		x = np.transpose(x)
 		dataset = tf.data.Dataset.from_tensor_slices((x, y))
 		dataset = dataset.cache()
 		dataset = dataset.shuffle(160000)
@@ -63,6 +64,7 @@ def load_dataset(subset:str, embedding_method:str, tokenizer:Tokenizer, max_toke
 		x = df["Comment"].values
 		y = df["Toxicity"].values
 		x = list(map(list, zip(*x)))
+		x = np.transpose(x)
 		dataset = tf.data.Dataset.from_tensor_slices((x, y))
 		dataset = dataset.cache()
 		dataset = dataset.shuffle(160000)
