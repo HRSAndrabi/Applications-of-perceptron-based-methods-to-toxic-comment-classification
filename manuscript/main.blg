@@ -3,44 +3,46 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: plainnat.bst
 Database file #1: main.bib
-You've used 31 entries,
+Warning--empty year in JigsawDataset
+You've used 32 entries,
             2773 wiz_defined-function locations,
-            768 strings with 11399 characters,
-and the built_in function-call counts, 16909 in all, are:
-= -- 1558
-> -- 913
-< -- 32
-+ -- 307
-- -- 276
-* -- 1289
-:= -- 2439
-add.period$ -- 98
-call.type$ -- 31
-change.case$ -- 185
-chr.to.int$ -- 31
-cite$ -- 62
-duplicate$ -- 821
-empty$ -- 1396
-format.name$ -- 327
-if$ -- 3692
+            774 strings with 11628 characters,
+and the built_in function-call counts, 17211 in all, are:
+= -- 1585
+> -- 923
+< -- 33
++ -- 311
+- -- 279
+* -- 1302
+:= -- 2485
+add.period$ -- 102
+call.type$ -- 32
+change.case$ -- 189
+chr.to.int$ -- 32
+cite$ -- 65
+duplicate$ -- 836
+empty$ -- 1428
+format.name$ -- 331
+if$ -- 3757
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 31
-newline$ -- 163
-num.names$ -- 124
-pop$ -- 400
+newline$ -- 169
+num.names$ -- 128
+pop$ -- 416
 preamble$ -- 1
-purify$ -- 154
+purify$ -- 157
 quote$ -- 0
-skip$ -- 680
+skip$ -- 689
 stack$ -- 0
-substring$ -- 779
-swap$ -- 189
+substring$ -- 781
+swap$ -- 190
 text.length$ -- 18
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 341
-warning$ -- 0
-while$ -- 159
+type$ -- 352
+warning$ -- 1
+while$ -- 162
 width$ -- 0
-write$ -- 411
+write$ -- 424
+(There was 1 warning)

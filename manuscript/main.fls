@@ -643,6 +643,7 @@ INPUT ./sections/introduction.tex
 INPUT ./sections/introduction.tex
 INPUT sections/introduction.tex
 INPUT /usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT ./sections/related-work.tex
 INPUT ./sections/related-work.tex
 INPUT ./sections/related-work.tex
@@ -711,7 +712,6 @@ OUTPUT main.lot
 INPUT ./main.ttt
 INPUT main.ttt
 INPUT main.ttt
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT main.aux
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb

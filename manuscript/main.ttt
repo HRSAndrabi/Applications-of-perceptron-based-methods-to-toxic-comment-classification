@@ -1,5 +1,5 @@
 \begin{table}[h]
-\caption{Jigsaw/Coversation AI toxicity labelling criteria \label{table:toxicity}}
+\caption{Jigsaw/Conversation AI toxicity labelling criteria \label{table:toxicity}}
     \centering
     \begin{tabular}{lllll}
         \toprule
