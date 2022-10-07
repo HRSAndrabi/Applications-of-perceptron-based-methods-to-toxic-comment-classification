@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.28)  7 OCT 2022 05:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.28)  7 OCT 2022 11:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -245,7 +245,11 @@ Package caption Info: Standard document class detected.
 Package caption Info: hyperref package is loaded.
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/xurl/xurl.sty
 Package: xurl 2022/01/09 v 0.10 modify URL breaks
-) (./main.aux)
+) (./main.aux
+
+LaTeX Warning: Label `sec:results' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
@@ -350,40 +354,39 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 33.
  (./sections/abstract.tex) (./sections/introduction.tex [1
 
-{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]) (./sections/related-work.tex) (./sections/dataset.tex
+{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]) (./sections/related-work.tex [2]) (./sections/dataset.tex
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 3.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 3.
- [2]
 \openout4 = `main.ttt'.
 
  (main.ttt)
 \openout3 = `main.fff'.
 
- (main.fff)) (./sections/experimental-method.tex [3]) [4] (./main.bbl [5] [6]) AED endfloat: Processing end Figures and Tables [7] (./main.lof)
+ (main.fff)) (./sections/experimental-method.tex [3] [4]) (./sections/results.tex) (./sections/conclusion.tex) [5] (./main.bbl [6] [7]) AED endfloat: Processing end Figures and Tables [8] (./main.lof)
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
- [8
+ [9
 
 
 ] (./main.fff
-<graphics/toxic_word_freq.pdf, id=139, 547.72734pt x 211.04503pt>
+<graphics/toxic_word_freq.pdf, id=146, 547.72734pt x 211.04503pt>
 File: graphics/toxic_word_freq.pdf Graphic file (type pdf)
 <use graphics/toxic_word_freq.pdf>
 Package pdftex.def Info: graphics/toxic_word_freq.pdf  used on input line 2.
 (pdftex.def)             Requested size: 397.485pt x 153.15668pt.
-<graphics/nontoxic_word_freq.pdf, id=140, 547.72734pt x 211.57278pt>
+<graphics/nontoxic_word_freq.pdf, id=147, 547.72734pt x 211.57278pt>
 File: graphics/nontoxic_word_freq.pdf Graphic file (type pdf)
 <use graphics/nontoxic_word_freq.pdf>
 Package pdftex.def Info: graphics/nontoxic_word_freq.pdf  used on input line 9.
 (pdftex.def)             Requested size: 397.485pt x 153.53967pt.
-) [9 <./graphics/toxic_word_freq.pdf> <./graphics/nontoxic_word_freq.pdf>] (./main.lot)
+) [10 <./graphics/toxic_word_freq.pdf> <./graphics/nontoxic_word_freq.pdf>] (./main.lot)
 \tf@lot=\write6
 \openout6 = `main.lot'.
 
- [10
+ [11
 
 
 ] (./main.ttt
@@ -396,22 +399,34 @@ Overfull \hbox (6.07768pt too wide) in paragraph at lines 23--57
  [][] 
  []
 
-) [11
 
-] (./main.aux) ) 
+Overfull \hbox (18.88321pt too wide) in paragraph at lines 63--97
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) [12
+
+] [13] (./main.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 11527 strings out of 478268
- 193813 string characters out of 5846347
- 570821 words of memory out of 5000000
- 29508 multiletter control sequences out of 15000+600000
+ 11546 strings out of 478268
+ 194176 string characters out of 5846347
+ 573968 words of memory out of 5000000
+ 29516 multiletter control sequences out of 15000+600000
  474327 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,10n,77p,1243b,486s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (11 pages, 166220 bytes).
+Output written on main.pdf (13 pages, 169179 bytes).
 PDF statistics:
- 214 PDF objects out of 1000 (max. 8388607)
- 181 compressed objects within 2 object streams
- 59 named destinations out of 1000 (max. 500000)
+ 229 PDF objects out of 1000 (max. 8388607)
+ 194 compressed objects within 2 object streams
+ 64 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

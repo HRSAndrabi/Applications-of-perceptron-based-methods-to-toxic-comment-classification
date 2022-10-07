@@ -1,15 +1,16 @@
 % Introduction
 
 Ours is the age of cyberspace: now, more than ever before, individuals possess an unrestrained freedom to express their opinions for all to behold. 
-Indeed, the rise of the internet has transformed the primary setting of our social interactions to one which promotes extreme behaviours and dispenses fewer consequences.
-This new setting does not reprimand us when we express opinions anarchically and without requisition; instead, it promotes tendentious behaviour that is insular to empathetic considerations.
+This new setting does not reprimand us for opinions expressed anarchically and without requisition; instead, it promotes extreme behaviours that are insular to empathetic considerations.
 It is against this contextual background that the majority of modern social interactions transpire --- social interactions that exploit, by and large, the traceable anonymity of online systems and the resulting protection against social accountability. 
-Indeed, moderation of online interactions is crucial to maintaining positive and healthy discussions. 
-Naturally, this raises an important question: how do we efficiently and effectively evaluate the vast and inexorable flow of online interactions to limit proliferation of abusive and anti-social behaviour?
+Indeed, the rise of the internet has transformed the primary setting of our social interactions: but can we be trusted to handle our newfound freedom in a responsible way?
+In the absence of naturally civilised interactions, moderation becomes crucial to maintaining positive and healthy discussions --- however, the quantity and frequency of online communication is simply too vast to be effectively moderated in a manual fashion. This raises an important and imminent question: how do we effectively and automatically monitor the inexorable flow of online interactions to limit toxic behaviour?
 
 Given these analytical problems and the impending social importance of developing measures to promote healthy online interactions, the analysis in this note will empirically examine the mitigating capacity of machine-learning techniques to identify and filter out textual instances of toxic behaviour.
-To this end, I focus my analysis on the assessment of the joint classification capacity of: (1) a range popular of machine-learning techniques; and, (2) a suite of text-embedding representations. 
+To this end, I focus my analysis on the assessment of the joint classification capacity of: (1) a range popular of machine-learning techniques to accurately classify toxic behaviour; and, (2) a suite of text-embedding representations that propose alternative methods for numerically encoding textual data. 
 In particular, I consider the capacity of these model-embedding representations to minimise incidence of biased classifications: that is, the erroneous tendency for discriminatory classification against sensitive classes such as race, religion, and gender.
+
+The remainder of the paper is structures as follows. Section 2 provides a contextual overview of relevant work in the field of toxic comment classification. Section 3 outlines the dataset and pre-processing methods employed in this analysis. Section 4 describes the general experimental framework, and the architecture of studied classification models. Section 5 presents and discusses the results. Finally, Section 6 concludes the paper
 
 
 % In general, incidences of extreme behaviour are enabled by two critical features of online systems: (1) traceable anonymity; and (2) visual anonymity. 

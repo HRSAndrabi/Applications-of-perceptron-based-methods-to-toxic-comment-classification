@@ -57,9 +57,10 @@ def estimate(name:str, layers:list, tokenizer, embedding, embedding_method, max_
 
 	predict.make_predictions(
 		model_name=name,
-		subset="test",
 		model=model,
-		tokenizer=tokenizer
+		subset="dev",
+		tokenizer=tokenizer,
+		embedding_method=embedding_method
 	)
 
 	pre = Precision()
