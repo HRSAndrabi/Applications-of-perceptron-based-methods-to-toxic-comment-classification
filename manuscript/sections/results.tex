@@ -3,7 +3,7 @@
 Model estimation and evaluation is conducted in congruence with hold-out methodology, with a train-test split of N=140,000, and N=15,000 respectively. Each model, in turn, was separately trained on the training dataset using TF-IDF, GloVe, and sentence-BERT word-embedding methodologies, and classification performance was evaluated on a consistently embedded validation dataset. Performance is assessed by way of precision, recall, and F-score metrics between toxicity predictions passed by the model, and toxicity annotations labelled by human raters, using the criteria defined in Table \ref{table:toxicity}.
 
 \begin{table}[h]
-	\caption{Toxic comment classification performance \label{table:estimation-results}}
+	\caption{Toxicity classification performance \label{table:performance-total}}
     \centering
 	\begin{tabular}{lrrrr}
 		\toprule
@@ -32,11 +32,222 @@ Model estimation and evaluation is conducted in congruence with hold-out methodo
 			\addlinespace{}
 			DNN (GloVe) &     0.7043 &    0.8380 &  0.2462 &   0.3649 \\
 			\addlinespace{}
-			CNN (TF-IDF) &     0.6902 &    0.8220 &  0.3034 &   0.4194 \\
+			CNN (TF-IDF) &      0.6501 &    0.8235 &  0.1429 &   0.2342 \\
 			\addlinespace{}
-			CNN (sentence-BERT)  &     0.6983 &    0.8326 &  0.3199 &   0.4381 \\
+			CNN (sentence-BERT)  &     0.6235 &    0.8221 &  0.1478 &   0.2390 \\
 			\addlinespace{}
 			CNN (GloVe)  &     0.7011 &    0.8460 &  0.3228 &   0.4420 \\
 	\bottomrule
+	\addlinespace[1em]
 	\end{tabular}
+	\parbox{14.5cm}{\textbf{Notes}: Model classification performance across entire validation dataset (N = 15,000). Logistic regression models are estimated with three distinct transformations of GloVe embeddings by coalescing vectors for all words in a given comment using the minimum, maximum, and average value across 100 dimensions.}
+\end{table}
+
+\begin{table}[h]
+	\caption{Toxicity classification performance for comments targeting religion \label{table:performance-religion}}
+    \centering
+	\begin{tabular}{lrrrr}
+		\toprule
+			Model &  Precision &  Accuracy &  Recall &  F-score \\
+		\midrule
+			\addlinespace{}
+			\parbox{7.5cm}{logit (TF-IDF)} &    0.6607 &    0.8770 &  0.1729 &   0.2741 \\
+			\addlinespace{}
+			logit (sentence-BERT) &     0.7143 &    0.8820 &  0.2025 &   0.3155 \\
+			\addlinespace{}
+			logit (GloVe - min.) &     0.5909 &    0.8682 &  0.0607 &   0.1102 \\
+			\addlinespace{}
+			logit (GloVe - max.) &     0.6173 &    0.8696 &  0.0779 &   0.1383 \\
+			\addlinespace{}
+			logit (GloVe - avg.) &     0.6071 &    0.8707 &  0.1059 &   0.1804 \\
+			\addlinespace{}
+			NN (TF-IDF) &     0.6333 &    0.8724 &  0.1184 &   0.1995 \\
+			\addlinespace{}
+			NN (sentence-BERT) &     0.6686 &    0.8780 &  0.1822 &   0.2864 \\
+			\addlinespace{}
+			NN (GloVe) &     0.6346 &    0.8832 &  0.3084 &   0.4151 \\
+			\addlinespace{}
+			DNN (TF-IDF) &     0.0000 &    0.8657 &  0.0000 &   0.0000 \\
+			\addlinespace{}
+			DNN (sentence-BERT) &     0.7239 &    0.8782 &  0.1511 &   0.2500 \\
+			\addlinespace{}
+			DNN (GloVe) &     0.7194 &    0.8837 &  0.2196 &   0.3365 \\
+			\addlinespace{}
+			CNN (TF-IDF) &      0.7108 &    0.8730 &  0.0919 &   0.1628 \\
+			\addlinespace{}
+			CNN (sentence-BERT)  &     0.6975 &    0.8755 &  0.1293 &   0.2181 \\
+			\addlinespace{}
+			CNN (GloVe)  &     0.7172 &    0.8878 &  0.2726 &   0.3950 \\
+	\bottomrule
+	\addlinespace[1em]
+	\end{tabular}
+	\parbox{14.5cm}{\textbf{Notes}: Model classification performance across subset of columns targeting religion (N = 4,779). Comments were selected as those with a positive human-rated annotation in any of the following identity columns: Asian; Atheist; Buddhist; Christian; Hindu; Jewish; Muslim; or Other religion. Logistic regression models are estimated with three distinct transformations of GloVe embeddings by coalescing vectors for all words in a given comment using the minimum, maximum, and average value across 100 dimensions.}
+\end{table}
+
+
+\begin{table}[h]
+	\caption{Toxicity classification performance for comments targeting sexual orientation \label{table:performance-sexual-orientation}}
+    \centering
+	\begin{tabular}{lrrrr}
+		\toprule
+			Model &  Precision &  Accuracy &  Recall &  F-score \\
+		\midrule
+			\addlinespace{}
+			\parbox{7.5cm}{logit (TF-IDF)} &    0.6504 &    0.7756 &  0.2768 &   0.3883 \\
+			\addlinespace{}
+			logit (sentence-BERT) &     0.6509 &    0.7711 &  0.2388 &   0.3494 \\
+			\addlinespace{}
+			logit (GloVe - min.) &     0.8750 &    0.7480 &  0.0242 &   0.0471 \\
+			\addlinespace{}
+			logit (GloVe - max.) &     0.7273 &    0.7560 &  0.0830 &   0.1491 \\
+			\addlinespace{}
+			logit (GloVe - avg.) &     0.5814 &    0.7489 &  0.0865 &   0.1506 \\
+			\addlinespace{}
+			NN (TF-IDF) &     0.6111 &    0.7711 &  0.3045 &   0.4065 \\
+			\addlinespace{}
+			NN (sentence-BERT) &     0.6471 &    0.7694 &  0.2284 &   0.3376 \\
+			\addlinespace{}
+			NN (GloVe) &     0.5750 &    0.7640 &  0.3183 &   0.4098 \\
+			\addlinespace{}
+			DNN (TF-IDF) &     0.0000 &    0.7427 &  0.0000 &   0.0000 \\
+			\addlinespace{}
+			DNN (sentence-BERT) &     0.6456 &    0.7631 &  0.1765 &   0.2772 \\
+			\addlinespace{}
+			DNN (GloVe) &     0.6800 &    0.7667 &  0.1765 &   0.2802 \\
+			\addlinespace{}
+			CNN (TF-IDF) &      0.7067 &    0.7703 &  0.1834 &   0.2912 \\
+			\addlinespace{}
+			CNN (sentence-BERT)  &     0.6333 &    0.7569 &  0.1315 &   0.2178 \\
+			\addlinespace{}
+			CNN (GloVe)  &     0.6726 &    0.7774 &  0.2630 &   0.3781 \\
+	\bottomrule
+	\addlinespace[1em]
+	\end{tabular}
+	\parbox{14.5cm}{\textbf{Notes}: Model classification performance across subset of columns targeting sexual orientation (N = 1,123). Comments were selected as those with a positive human-rated annotation in any of the following identity columns: bisexual; heterosexual; homosexual gay or lesbian; and other sexual orientation. Logistic regression models are estimated with three distinct transformations of GloVe embeddings by coalescing vectors for all words in a given comment using the minimum, maximum, and average value across 100 dimensions.}
+\end{table}
+
+
+\begin{table}[h]
+	\caption{Toxicity classification performance for comments targeting race \label{table:performance-race}}
+    \centering
+	\begin{tabular}{lrrrr}
+		\toprule
+			Model &  Precision &  Accuracy &  Recall &  F-score \\
+		\midrule
+			\addlinespace{}
+			\parbox{7.5cm}{logit (TF-IDF)} &    0.6435 &    0.7229 &  0.2750 &   0.3853 \\
+			\addlinespace{}
+			logit (sentence-BERT) &    0.6567 &    0.7335 &  0.3273 &   0.4369 \\
+			\addlinespace{}
+			logit (GloVe - min.) &     0.5885 &    0.6948 &  0.1117 &   0.1878 \\
+			\addlinespace{}
+			logit (GloVe - max.) &     0.6196 &    0.7005 &  0.1336 &   0.2198 \\
+			\addlinespace{}
+			logit (GloVe - avg.) &     0.5898 &    0.6990 &  0.1539 &   0.2441 \\
+			\addlinespace{}
+			NN (TF-IDF) &     0.6257 &    0.7155 &  0.2469 &   0.3541 \\
+			\addlinespace{}
+			NN (sentence-BERT) &     0.6153 &    0.7177 &  0.2836 &   0.3882 \\
+			\addlinespace{}
+			NN (GloVe) &     0.6409 &    0.7372 &  0.3820 &   0.4787 \\
+			\addlinespace{}
+			DNN (TF-IDF) &     0.0000 &    0.6842 &  0.0000 &   0.0000 \\
+			\addlinespace{}
+			DNN (sentence-BERT) &     0.6208 &    0.7254 &  0.3352 &   0.4353 \\
+			\addlinespace{}
+			DNN (GloVe) &     0.6912 &    0.7355 &  0.2938 &   0.4123 \\
+			\addlinespace{}
+			CNN (TF-IDF) &      0.6443 &    0.7128 &  0.2023 &   0.3080 \\
+			\addlinespace{}
+			CNN (sentence-BERT)  &     0.6262 &    0.7098 &  0.2016 &   0.3050 \\
+			\addlinespace{}
+			CNN (GloVe)  &     0.6924 &    0.7456 &  0.3500 &   0.4650 \\
+	\bottomrule
+	\addlinespace[1em]
+	\end{tabular}
+	\parbox{14.5cm}{\textbf{Notes}: Model classification performance across subset of columns targeting race (N = 4,053). Comments were selected as those with a positive human-rated annotation in any of the following identity columns: Black; Latino; other race or ethnicity; or White. Logistic regression models are estimated with three distinct transformations of GloVe embeddings by coalescing vectors for all words in a given comment using the minimum, maximum, and average value across 100 dimensions.}
+\end{table}
+
+
+\begin{table}[h]
+	\caption{Toxicity classification performance for comments targeting gender \label{table:performance-gender}}
+    \centering
+	\begin{tabular}{lrrrr}
+		\toprule
+			Model &  Precision &  Accuracy &  Recall &  F-score \\
+		\midrule
+			\addlinespace{}
+			\parbox{7.5cm}{logit (TF-IDF)} &    0.6439 &    0.8453 &  0.1441 &   0.2355 \\
+			\addlinespace{}
+			logit (sentence-BERT) &   0.6286 &    0.8495 &  0.2195 &   0.3254 \\
+			\addlinespace{}
+			logit (GloVe - min.) &     0.4667 &    0.8338 &  0.0356 &   0.0661 \\
+			\addlinespace{}
+			logit (GloVe - max.) &    0.4882 &    0.8342 &  0.0525 &   0.0949 \\
+			\addlinespace{}
+			logit (GloVe - avg.) &    0.5580 &    0.8383 &  0.1059 &   0.1781 \\
+			\addlinespace{}
+			NN (TF-IDF) &     0.5911 &    0.8398 &  0.1017 &   0.1735 \\
+			\addlinespace{}
+			NN (sentence-BERT) &     0.5710 &    0.8420 &  0.1771 &   0.2704 \\
+			\addlinespace{}
+			NN (GloVe) &     0.6494 &    0.8597 &  0.3297 &   0.4373 \\
+			\addlinespace{}
+			DNN (TF-IDF) &      0.0000 &    0.8347 &  0.0000 &   0.0000 \\
+			\addlinespace{}
+			DNN (sentence-BERT) &     0.6147 &    0.8460 &  0.1839 &   0.2831 \\
+			\addlinespace{}
+			DNN (GloVe) &     0.6862 &    0.8551 &  0.2280 &   0.3422 \\
+			\addlinespace{}
+			CNN (TF-IDF) &      0.6557 &    0.8427 &  0.1017 &   0.1761 \\
+			\addlinespace{}
+			CNN (sentence-BERT)  &    0.5964 &    0.8407 &  0.1127 &   0.1896 \\
+			\addlinespace{}
+			CNN (GloVe)  &     0.6723 &    0.8602 &  0.3008 &   0.4157 \\
+	\bottomrule
+	\addlinespace[1em]
+	\end{tabular}
+	\parbox{14.5cm}{\textbf{Notes}: Model classification performance across subset of columns targeting gender (N = 7,137). Comments were selected as those with a positive human-rated annotation in any of the following identity columns: female; male; other gender; or transgender. Logistic regression models are estimated with three distinct transformations of GloVe embeddings by coalescing vectors for all words in a given comment using the minimum, maximum, and average value across 100 dimensions.}
+\end{table}
+
+
+\begin{table}[h]
+	\caption{Toxicity classification performance for comments targeting disability \label{table:performance-disability}}
+    \centering
+	\begin{tabular}{lrrrr}
+		\toprule
+			Model &  Precision &  Accuracy &  Recall &  F-score \\
+		\midrule
+			\addlinespace{}
+			\parbox{7.5cm}{logit (TF-IDF)} &    0.5610 &    0.8000 &  0.2255 &   0.3217 \\
+			\addlinespace{}
+			logit (sentence-BERT) &    0.7500 &    0.8351 &  0.3235 &   0.4521 \\
+			\addlinespace{}
+			logit (GloVe - min.) &     0.5000 &    0.7897 &  0.0294 &   0.0556 \\
+			\addlinespace{}
+			logit (GloVe - max.) &    0.6429 &    0.7979 &  0.0882 &   0.1552 \\
+			\addlinespace{}
+			logit (GloVe - avg.) &    0.4545 &    0.7876 &  0.0490 &   0.0885 \\
+			\addlinespace{}
+			NN (TF-IDF) &     0.5263 &    0.7918 &  0.0980 &   0.1653 \\
+			\addlinespace{}
+			NN (sentence-BERT) &      0.6458 &    0.8186 &  0.3039 &   0.4133 \\
+			\addlinespace{}
+			NN (GloVe) &     0.6905 &    0.8227 &  0.2843 &   0.4028 \\
+			\addlinespace{}
+			DNN (TF-IDF) &      0.0000 &    0.7897 &  0.0000 &   0.0000 \\
+			\addlinespace{}
+			DNN (sentence-BERT) &     0.7027 &    0.8206 &  0.2549 &   0.3741 \\
+			\addlinespace{}
+			DNN (GloVe) &     0.7692 &    0.8186 &  0.1961 &   0.3125 \\
+			\addlinespace{}
+			CNN (TF-IDF) &      0.6667 &    0.8021 &  0.1176 &   0.2000 \\
+			\addlinespace{}
+			CNN (sentence-BERT)  &    0.8095 &    0.8165 &  0.1667 &   0.2764 \\
+			\addlinespace{}
+			CNN (GloVe)  &     0.7407 &    0.8433 &  0.3922 &   0.5128 \\
+	\bottomrule
+	\addlinespace[1em]
+	\end{tabular}
+	\parbox{14.5cm}{\textbf{Notes}: Model classification performance across subset of columns targeting disability (N = 485). Comments were selected as those with a positive human-rated annotation in any of the following identity columns: intellectual or learning disability; other disability; physical disability; or psychiatric or mental illness. Logistic regression models are estimated with three distinct transformations of GloVe embeddings by coalescing vectors for all words in a given comment using the minimum, maximum, and average value across 100 dimensions.}
 \end{table}

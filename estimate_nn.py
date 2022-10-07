@@ -10,13 +10,13 @@ models = {
 	# 	Flatten(),
 	# 	Dense(1, activation="sigmoid"),
 	# ],
-	"2hl_bert" : [
-		InputLayer(input_shape=(384,)),
-		Dense(128, activation="relu", kernel_regularizer="l2"),
-		Dense(128, activation="relu", kernel_regularizer="l2"),
-		Flatten(),
-		Dense(1, activation="sigmoid"),
-	],
+	# "2hl_bert" : [
+	# 	InputLayer(input_shape=(384,)),
+	# 	Dense(128, activation="relu", kernel_regularizer="l2"),
+	# 	Dense(128, activation="relu", kernel_regularizer="l2"),
+	# 	Flatten(),
+	# 	Dense(1, activation="sigmoid"),
+	# ],
 
 	# "3hl" : [
 	# 	Dense(128, activation="relu", kernel_regularizer="l2"),
@@ -31,14 +31,14 @@ models = {
 	# 	Dense(1, activation="sigmoid"),
 	# ],
 
-	# "conv_maxPool_1hl_bert" : [
-	# 	InputLayer(input_shape=(384, 10, )),
-	# 	Conv1D(128, 5, activation="relu"),
-	# 	MaxPooling1D(5),
-	# 	Dense(128, activation="relu", kernel_regularizer="l2"),
-	# 	Flatten(),
-	# 	Dense(1, activation="sigmoid"),
-	# ],
+	"conv_maxPool_1hl_tfidf" : [
+		# InputLayer(1, 384, ),
+		Conv1D(128, 5, activation="relu", input_shape = (1000, 1)),
+		MaxPooling1D(5),
+		Dense(128, activation="relu", kernel_regularizer="l2"),
+		Flatten(),
+		Dense(1, activation="sigmoid"),
+	],
 
 	# "conv_maxPool_2hl" : [
 	# 	Conv1D(128, 5, activation="relu"),
@@ -137,7 +137,7 @@ for name, layers in models.items():
 			embedding=embedding,
 			epochs=10,
 			max_tokenizer_length=max_tokenizer_length,
-			embedding_method="bert",
+			embedding_method="tfidf",
 		)
 	except Exception as e:
 		print(e)
